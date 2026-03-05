@@ -1,0 +1,84 @@
+<div class="work-container">
+  <h1>Munkaidő Rögzítése</h1>
+  
+  <form [formGroup]="workForm" (ngSubmit)="onSubmit()" class="work-form">
+    
+    <!-- Projekt név -->
+    <div class="form-group">
+      <label for="projectName">Projekt neve *</label>
+      <input 
+        type="text" 
+        id="projectName" 
+        formControlName="projectName" 
+        class="form-control"
+        [class.error]="isFieldTouched('projectName') && workForm.get('projectName')?.invalid"
+      >
+      <div class="error-message" *ngIf="isFieldTouched('projectName') && workForm.get('projectName')?.invalid">
+        {{ getErrorMessage('projectName') }}
+      </div>
+    </div>
+    
+    <!-- Dátum -->
+    <div class="form-group">
+      <label for="date">Dátum *</label>
+      <input 
+        type="date" 
+        id="date" 
+        formControlName="date" 
+        class="form-control"
+        [class.error]="isFieldTouched('date') && workForm.get('date')?.invalid"
+      >
+      <div class="error-message" *ngIf="isFieldTouched('date') && workForm.get('date')?.invalid">
+        {{ getErrorMessage('date') }}
+      </div>
+    </div>
+    
+    <!-- Ledolgozott órák -->
+    <div class="form-group">
+      <label for="hours">Ledolgozott órák *</label>
+      <input 
+        type="number" 
+        id="hours" 
+        formControlName="hours" 
+        class="form-control"
+        step="0.5"
+        min="0.5"
+        max="12"
+        [class.error]="isFieldTouched('hours') && workForm.get('hours')?.invalid"
+      >
+      <div class="error-message" *ngIf="isFieldTouched('hours') && workForm.get('hours')?.invalid">
+        {{ getErrorMessage('hours') }}
+      </div>
+    </div>
+    
+    <!-- Leírás -->
+    <div class="form-group">
+      <label for="description">Leírás *</label>
+      <textarea 
+        id="description" 
+        formControlName="description" 
+        class="form-control"
+        rows="3"
+        maxlength="30"
+        [class.error]="isFieldTouched('description') && workForm.get('description')?.invalid"
+      ></textarea>
+      <div class="char-count" *ngIf="workForm.get('description')?.value">
+        {{ workForm.get('description')?.value.length }}/30
+      </div>
+      <div class="error-message" *ngIf="isFieldTouched('description') && workForm.get('description')?.invalid">
+        {{ getErrorMessage('description') }}
+      </div>
+    </div>
+    
+    <!-- Regisztráció gomb -->
+    <button 
+      type="submit" 
+      class="btn-submit"
+      [disabled]="!workForm.valid"
+    >
+      Regisztráció
+    </button>
+    
+  </form>
+</div>
+

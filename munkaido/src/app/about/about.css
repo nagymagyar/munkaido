@@ -1,0 +1,58 @@
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.about-container h1 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.about-content {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-box {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.info-box h2 {
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.info-box ul {
+  list-style-position: inside;
+  color: #666;
+}
+
+.info-box li {
+  margin-bottom: 0.5rem;
+}
+
+.info-box p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.contact {
+  text-align: center;
+  color: #999;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
