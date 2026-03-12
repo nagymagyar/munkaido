@@ -13,9 +13,11 @@
         class="form-control"
         [class.error]="isFieldTouched('projectName') && workForm.get('projectName')?.invalid"
       >
-      <div class="error-message" *ngIf="isFieldTouched('projectName') && workForm.get('projectName')?.invalid">
-        {{ getErrorMessage('projectName') }}
-      </div>
+      @if (isFieldTouched('projectName') && workForm.get('projectName')?.invalid) {
+        <div class="error-message">
+          {{ getErrorMessage('projectName') }}
+        </div>
+      }
     </div>
     
    
@@ -28,9 +30,11 @@
         class="form-control"
         [class.error]="isFieldTouched('date') && workForm.get('date')?.invalid"
       >
-      <div class="error-message" *ngIf="isFieldTouched('date') && workForm.get('date')?.invalid">
-        {{ getErrorMessage('date') }}
-      </div>
+      @if (isFieldTouched('date') && workForm.get('date')?.invalid) {
+        <div class="error-message">
+          {{ getErrorMessage('date') }}
+        </div>
+      }
     </div>
     
    
@@ -46,9 +50,11 @@
         max="12"
         [class.error]="isFieldTouched('hours') && workForm.get('hours')?.invalid"
       >
-      <div class="error-message" *ngIf="isFieldTouched('hours') && workForm.get('hours')?.invalid">
-        {{ getErrorMessage('hours') }}
-      </div>
+      @if (isFieldTouched('hours') && workForm.get('hours')?.invalid) {
+        <div class="error-message">
+          {{ getErrorMessage('hours') }}
+        </div>
+      }
     </div>
     
     
@@ -62,12 +68,16 @@
         maxlength="30"
         [class.error]="isFieldTouched('description') && workForm.get('description')?.invalid"
       ></textarea>
-      <div class="char-count" *ngIf="workForm.get('description')?.value">
-        {{ workForm.get('description')?.value.length }}/30
-      </div>
-      <div class="error-message" *ngIf="isFieldTouched('description') && workForm.get('description')?.invalid">
-        {{ getErrorMessage('description') }}
-      </div>
+      @if (workForm.get('description')?.value) {
+        <div class="char-count">
+          {{ workForm.get('description')?.value.length }}/30
+        </div>
+      }
+      @if (isFieldTouched('description') && workForm.get('description')?.invalid) {
+        <div class="error-message">
+          {{ getErrorMessage('description') }}
+        </div>
+      }
     </div>
     
     
